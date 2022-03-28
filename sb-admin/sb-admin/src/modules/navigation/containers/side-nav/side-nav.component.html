@@ -1,0 +1,46 @@
+<link
+    rel="stylesheet"
+    href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css"
+/>
+<style>
+    .form-outline a:hover {
+        text-decoration: none;
+        color: #fff !important;
+        cursor: pointer;
+    }
+</style>
+<nav class="sb-sidenav accordion" id="sidenavAccordion" [ngClass]="sidenavStyle">
+    <div class="sb-sidenav-menu">
+        <div class="nav">
+            <ng-container *ngFor="let section of sideNavSections"
+                >
+                <div class="sb-sidenav-menu-heading" *ngIf="section.text">
+                    {{ section.text }}
+
+                </div>
+                <ng-container *ngFor="let item of section.items">
+                    <sb-side-nav-item [sideNavItem]="sideNavItems[item]">
+                    </sb-side-nav-item> </ng-container
+            ></ng-container>
+            <!-- <div class="form-outline">
+                        <a style="margin: 16px;" (click)="userData()">Users</a>
+                    </div> -->
+            <!-- <div class="form-outline">
+                        <a class="fa fa-cloud" style="text-decoration: none;" style="margin: 16px; color:rgba(255, 255, 255, 0.5);" (click)="check()"><i style="margin-right: 0.5em; color: #EEEEEE;" class="icon-home icon-4x"></i>Dashboard</a>
+                    </div> -->
+            <div class="form-outline">
+                <!-- <a (click)="check()" class="fa fa-cloud" style="text-decoration: none;" style="margin: 16px; color:rgba(255, 255, 255, 0.5);"><i style="margin-right: 0.5em; color: #EEEEEE;" class="icon-home icon-4x"></i>Users-tables</a> -->
+                <!-- <a [routerLink]="/tables" routerLinkActive="router-link-active">Go Next page</a> -->
+                <!-- <a [routerLink]="['/create',us.id]" class="btn btn-sm btn-success">Update</a> -->
+            </div>
+        </div>
+    </div>
+    <!-- <div class="sb-sidenav-footer">
+        <div class="small">Logged in as:</div>
+        <span *ngIf="userService.user$ | async as user">
+            {{ user.firstName }} {{ user.lastName }}
+        </span>
+    </div> -->
+
+    <div class="col"></div>
+</nav>

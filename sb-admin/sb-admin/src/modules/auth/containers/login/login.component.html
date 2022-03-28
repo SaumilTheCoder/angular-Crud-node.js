@@ -1,0 +1,64 @@
+<sb-layout-auth
+    ><div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-5">
+                <div class="card shadow-lg border-0 rounded-lg mt-5">
+                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Login</h3></div>
+                    <div class="card-body">
+
+                        <!-- show Error msg -->
+
+                        <!-- <div *ngIf="errormsg" class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <strong>{{errormsg}}</strong>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                          </div>
+
+                          <div *ngIf="successmsg" class="alert alert-success alert-dismissible fade show" role="alert">
+                            <strong>{{successmsg}}</strong>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                          </div> -->
+
+                          <form [formGroup]="LoginForm" (ngSubmit)="onSubmit()">
+                            <!-- 2 column grid layout with text inputs for the first and last names -->
+                            <!-- <div class="col">
+                                <div class="form-outline">
+                                    <a (click)="check()">GO</a>
+                                </div>
+                              </div> -->
+
+                              <div class="form-outline mb-4">
+                                <label class="form-label" for="form6Example6">Email</label>
+                                <input type="text" id="" formControlName="email"  (change)="isDirty = true" placeholder="Please enter Email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+
+                                <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                    <div *ngIf="f.email.errors.required">Email is required</div>
+                                    <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                                </div>
+                              </div>
+
+                              <div class="form-outline mb-4">
+                                <label class="form-label" for="form6Example6">Password</label>
+                                <input type="password" id="" formControlName="password"  (change)="isDirty = true" placeholder="Please enter Password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+
+                                <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                                    <div *ngIf="f.password.errors.required">Password is required</div>
+                                <div *ngIf="f.password.errors.minlength">Password is Must be 6 charecters</div>
+                                </div>
+                              </div>
+                            <!-- Submit button -->
+                            <button [disabled]="loading" class="btn btn-primary btn-block mb-4">
+                                <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                                Login
+                            </button>
+                            <button *ngIf="getparamid" (click)="userUpdate()" class="btn btn-primary btn-block mb-4" style="background-color: #212529;">Update</button>
+                          </form>
+                    </div>
+                    <div class="card-footer text-center">
+                        <div class="small"><a routerLink="/auth/register">Need an account? Sign up!</a></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div></sb-layout-auth
+>

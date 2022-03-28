@@ -1,0 +1,47 @@
+<div class="container">
+
+    <!-- Readcomponents -->
+
+    <div *ngIf="successmsg" class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>{{successmsg}}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+
+    <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">#Id</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Country</th>
+            <th scope="col">State</th>
+            <th scope="col">City</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Age</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone Number</th>
+            <th scope="col">Edit</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor = 'let us of readData'>
+            <th scope="row">{{us.id}}</th>
+            <td>{{us.firstname}}</td>
+            <td>{{us.lastname}}</td>
+            <td>{{us.country}}</td>
+            <td>{{us.state}}</td>
+            <td>{{us.city}}</td>
+            <td>{{us.gender}}</td>
+            <td>{{us.age}}</td>
+            <td>{{us.email}}</td>
+            <td>{{us.mobile}}</td>
+            <td>
+                <button class="btn btn-sm btn-danger" (click)="deleteId(us.id)">Delete</button>
+                &nbsp;
+                <a [routerLink]="['/create',us.id]" class="btn btn-sm btn-success">Update</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+</div>

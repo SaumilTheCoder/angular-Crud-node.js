@@ -1,0 +1,45 @@
+<div class="container mt-5">
+
+    <!-- Show error msg -->
+
+    <div *ngIf="errormsg" class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>{{errormsg}}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+
+      <div *ngIf="successmsg" class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>{{successmsg}}</strong>
+        <button type="button"  class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+
+
+    <form [formGroup]="userForm" >
+        <div class="col-lg-6 mt-2">
+            <input type="text" (change)="isDirty = true" class="formcontrol" formControlName="firstname" placeholder="Enter First Name">
+        </div>
+
+        <div class="col-lg-6 mt-2">
+            <input type="text" (change)="isDirty = true" class="formcontrol" formControlName="lastname" placeholder="Enter Last Name">
+        </div>
+
+        <div class="col-lg-6 mt-2">
+            <input type="text" class="formcontrol" formControlName="age" placeholder="Enter Age">
+        </div>
+
+        <div class="col-lg-6 mt-2">
+            <input type="text" class="formcontrol" formControlName="email" placeholder="Enter Email">
+        </div>
+
+        <div class="col-lg-6 mt-2" *ngIf="!getparamid" (click)="userSubmit()">
+            <button class="btn btn-primary btn-sm">Create</button>
+        </div>
+
+        <div class="col-lg-6 mt-2" *ngIf="getparamid" (click)="userUpdate()">
+            <button class="btn btn-dark btn-sm">update</button>
+        </div>
+
+<a style="margin: -190px -143px;position: absolute;" [routerLink]="['/create']" routerLinkActivate="router-link-activate">Creat</a>
+<a style="margin: -152px -143px;position: absolute;" [routerLink]="['/read']" routerLinkActivate="router-link-activate">Read-Data</a>
+<a style="margin: -116px -143px;position: absolute;;" [routerLink]="['/datacheck']" routerLinkActivate="router-link-activate">User-tables</a>
+    </form>
+</div>
